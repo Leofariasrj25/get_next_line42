@@ -6,7 +6,7 @@
 /*   By: lfarias- <lfarias-@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 12:09:09 by lfarias-          #+#    #+#             */
-/*   Updated: 2022/05/31 19:22:38 by lfarias-         ###   ########.fr       */
+/*   Updated: 2022/06/01 16:30:22 by lfarias-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ typedef struct s_str_buffer
 char		*get_next_line(int fd);
 t_str_buff	*create_node(void *content, size_t size);
 void		add_node(t_str_buff **str_bf, t_str_buff *node);
+t_str_buff	*next_node(t_str_buff *node);
 int			get_strlen(t_str_buff **str_bf);
 size_t		count_lf(char *read_bf, size_t bytes_read);
 #endif

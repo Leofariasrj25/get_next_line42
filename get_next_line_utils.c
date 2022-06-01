@@ -6,7 +6,7 @@
 /*   By: lfarias- <lfarias-@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 12:54:48 by lfarias-          #+#    #+#             */
-/*   Updated: 2022/05/31 19:22:16 by lfarias-         ###   ########.fr       */
+/*   Updated: 2022/06/01 16:31:22 by lfarias-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,4 +54,19 @@ int	get_strlen(t_str_buff **str_bf)
 		node = node->next;
 	}
 	return (len);
+}
+
+t_str_buff	*next_node(t_str_buff *node)
+{
+	t_str_buff	*next_node;
+
+	if (node)
+	{
+		next_node = node->next;
+		free(node->content);
+		free(node);
+		return (next_node);
+	}
+	else
+		return (NULL);
 }

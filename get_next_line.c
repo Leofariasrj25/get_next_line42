@@ -6,7 +6,7 @@
 /*   By: lfarias- <lfarias-@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 18:50:02 by lfarias-          #+#    #+#             */
-/*   Updated: 2022/05/31 19:20:29 by lfarias-         ###   ########.fr       */
+/*   Updated: 2022/06/01 16:29:40 by lfarias-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,13 +50,27 @@ void	add_node(t_str_buff **str_buff, t_str_buff *node)
 	node->next = NULL;
 }
 
+int	copy_to_str(t_str_buff *node, char *str, int str_index, int str_size)
+{
+	size_t	i;
+
+	i = node->start;
+	while (str_index < str_size && i < node->len)
+	{
+		str[str_index] = node->content[i];
+		i++;
+		str_index++;
+		node->start++;
+	}
+	return (str_index);
+}
+
 char	*get_line(t_str_buff **str_bf, int *lf_count)
 {
 	char		*new_line;
 	t_str_buff	*node;
 	size_t		str_size;
 	size_t		i;
-	size_t		j;
 
 	str_size = get_strlen(str_bf);
 	if (str_size == 0)
@@ -66,21 +80,9 @@ char	*get_line(t_str_buff **str_bf, int *lf_count)
 	i = 0;
 	while (node != NULL && i < str_size)
 	{
-		j = node->start;
-		while (i < str_size && j < node->len)
-		{
-			new_line[i++] = node->content[j++];
-			node->start++;
-		}
-		if (j >= node->len || node->content[j] == EOS)
-		{
-			*str_bf = node;
-			node = node->next;
-			free((*str_bf)->content);
-			free(*str_bf);
-		}
-		else
-			break ;
+		i = copy_to_str(node, new_line, i, str_size);
+		if (node->start >= node->len)
+			node = next_node(node);
 	}
 	new_line[str_size] = '\0';
 	*lf_count = *lf_count - 1;
