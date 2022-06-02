@@ -6,12 +6,11 @@
 /*   By: lfarias- <lfarias-@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 18:50:02 by lfarias-          #+#    #+#             */
-/*   Updated: 2022/06/01 16:29:40 by lfarias-         ###   ########.fr       */
+/*   Updated: 2022/06/02 16:32:32 by lfarias-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-#include <stdio.h>
 
 t_str_buff	*create_node(void *content, size_t content_size)
 {
@@ -97,7 +96,7 @@ char	*get_next_line(int fd)
 	static int			lf_count;
 	int					bytes_read;
 
-	if (BUFFER_SIZE == 0 || (fd < 0))
+	if (BUFFER_SIZE <= 0 || (fd < 0 || fd > MAX_FD))
 		return (NULL);
 	bytes_read = -1;
 	while (bytes_read != 0)

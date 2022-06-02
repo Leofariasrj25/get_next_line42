@@ -6,13 +6,11 @@
 /*   By: lfarias- <lfarias-@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 12:54:48 by lfarias-          #+#    #+#             */
-/*   Updated: 2022/06/01 16:31:22 by lfarias-         ###   ########.fr       */
+/*   Updated: 2022/06/02 16:35:12 by lfarias-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-#include <stddef.h>
-#include <stdio.h>
 
 size_t	count_lf(char *read_bf, size_t bytes_read)
 {

@@ -6,7 +6,7 @@
 /*   By: lfarias- <lfarias-@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/01 16:28:47 by lfarias-          #+#    #+#             */
-/*   Updated: 2022/06/01 18:57:08 by lfarias-         ###   ########.fr       */
+/*   Updated: 2022/06/02 16:41:54 by lfarias-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,10 @@
 
 # define LF '\n'
 # define EOS '\0'
+# define MAX_FD	4096
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 10000000
+#  define BUFFER_SIZE 42
 # endif
 
 typedef struct s_str_buffer

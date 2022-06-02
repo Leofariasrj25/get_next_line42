@@ -6,7 +6,7 @@
 /*   By: lfarias- <lfarias-@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/01 16:27:50 by lfarias-          #+#    #+#             */
-/*   Updated: 2022/06/01 19:04:48 by lfarias-         ###   ########.fr       */
+/*   Updated: 2022/06/02 16:34:32 by lfarias-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,10 +94,10 @@ char	*get_line(t_str_buff **str_bf)
 char	*get_next_line(int fd)
 {
 	char				*read_bf;
-	static t_str_buff	*str_bf[1024] = {0};
+	static t_str_buff	*str_bf[MAX_FD] = {0};
 	int					bytes_read;
 
-	if (BUFFER_SIZE == 0 || (fd < 0))
+	if (BUFFER_SIZE <= 0 || (fd < 0 || fd > MAX_FD))
 		return (NULL);
 	bytes_read = -1;
 	while (bytes_read != 0)
